@@ -1,8 +1,8 @@
 # Dell Chromebook 11 (Candy) Activity LED Controller
 
-An optimized, feature-rich Python 3 hardware utility to control the physical lid activity indicator light on the Dell Chromebook 11 (Candy) running Linux (tested on MX Linux 25.2 SysVinit).
+An optimized, feature-rich Python3 hardware utility to control the physical lid activity indicator light on the Dell Chromebook 11 (Candy) running Linux (tested on MX Linux 25.2 SysVinit).
 
-This project is an updated and expanded Python 3 modernization based on the original legacy Python 2 implementation by hgeg.
+This project is an updated and expanded Python3 modernization based on the original legacy Python2 implementation by hgeg.
 
 ## Features
 
