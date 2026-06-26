@@ -28,7 +28,7 @@ sudo apt update && sudo apt install git python3-pip python3-usb
 
 1. Clone this repositorny into your home directory:
  ``bash
-  git clone https://github.com/YOUR_GITHUB_USERNAME/dell-chromebook-candy-led.git
+  git clone https://github.com/hastybaxtyar61-ctrl/dell-chromebook-candy-led.git
   cd dell-chromebook-candy-led
   chmod +x led.py
   ```
