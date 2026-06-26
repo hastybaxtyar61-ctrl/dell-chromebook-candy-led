@@ -6,73 +6,63 @@ This project is an updated and expanded Python 3 modernization based on the orig
 
 ## Features
 
-- **Solid Steady Modes:** Set a solid color that stays illuminated indefinitely.
-- **Blink Loops:** Flash any supported hardware color a specific number of times.
-- **Dual-Color Strobe:** Alternate rapidly back and forth between two custom colors (e.g., Police Style).
-- **Infinite RGB Cycle:** Start a full-spectrum rainbow loop across all hardware phases.
-- **Color-Coded Help Menu:** Includes built-in ANSI-colored syntax and typo protection.
-- **No Heavy Dependencies:** Communicates directly with the raw `/dev/hidraw0` hardware layer.
+- **📦 Native Debian Installer (.deb):** Easily deploy the utility as a system application.
+- **🔑 Passwordless Hardware Access:** Bundled with custom kernel `udev` rules so you can switch colors without typing `sudo`.
+- **🎨 ANSI-Colored TUI:** Features a beautiful, color-coded terminal user interface menu with integrated syntax safeguards.
+- **⚡ Global Shortcut:** Accessible natively system-wide via the simple `chromelight` command.
+- **✨ Multiple Lighting Modes:** Supports solid colors, blink loops, dual-color strobe flashes, and an infinite RGB rainbow cycle.
 
 ## Available Colors
 
 - `red`, `green`, `blue`, `cyan`, `magenta`, `yellow`, `white`, `off`
 
-## Dependencies
+---
 
-To run this utility and allow for future USB communication extensions, you must install the following system packages on MX Linux / Debian:
+## 💾 Installation
 
+The easiest way to install this tool on MX Linux or Debian is by using our custom compiled pre-release package:
+
+1. Head over to the **Releases** tab on this repository and download the latest `.deb` installer.
+2. Open your terminal in the directory where the file was downloaded and run:
 ```bash
-sudo apt update && sudo apt install git python3-pip python3-usb
+sudo apt install ./chromelight_0.1.9_all.deb
 ```
+
+*(Note: The installer automatically pulls down required hardware dependencies like `python3-usb` and configures your system permissions).*
 
 ---
 
-## Installation
+## 🚀 How to Use
 
-1. Clone this repository into your home directory:
+Once installed, simply open any terminal window on your machine and invoke the tool natively:
+
+1. **Open the Help TUI Menu:**
 ```bash
-git clone https://github.com/hastybaxtyar61-ctrl/dell-chromebook-candy-led.git
-cd dell-chromebook-candy-led
-chmod +x led.py
+chromelight
 ```
 
-## How to Use
-
-Run the script directly via terminal:
-
-1. **Set a Solid Color:**
+2. **Set a Solid Color:**
 ```bash
-sudo ./led.py magenta
+chromelight magenta
 ```
 
-2. **Blink a Color X Times:**
+3. **Blink a Color X Times:**
 ```bash
-sudo ./led.py green 5
+chromelight green 5
 ```
 
-3. **Dual Alternating Strobe Flash:**
+4. **Dual Alternating Strobe Flash:**
 ```bash
-sudo ./led.py blue red
+chromelight blue red
 ```
 
-4. **Infinite RGB Rainbow Cycle:**
-```bash
-sudo ./led.py RGB
-```
-
-### Creating a Global Terminal Shortcut
-
-To run this tool effortlessly from any directory using a short command, add a custom alias to your shell profile configuration: 
-```bash
-echo "alias chromelight='sudo /home/hasty-baxtyar/candy-led/led.py'" >> ~/.bashrc
-source ~/.bashrc
-```
-
-Now you can simply use:
+5. **Infinite RGB Rainbow Cycle:**
 ```bash
 chromelight RGB
-chromelight off
 ```
+
+## 🛠️ Active Development
+⚠️ **Note:** A dedicated Graphical User Interface (GUI) wrapper application is currently in the testing phase and will be added in an upcoming development release. 
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more details.
