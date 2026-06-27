@@ -2,7 +2,7 @@
 import sys, time
 from random import randrange as rand
 
-devpath = '/dev/hidraw0'
+devpath = '/dev/chromelight'
 colors = {'red':0x01,'green':0x02,'blue':0x03,'cyan':0x06,'magenta':0x05,'yellow':0x04,'white':0x07,'off':0x08}
 chsum = lambda b0, b1, b3: (21*b0**2 + 19*b1 - 3*b3) % 255
 
@@ -52,17 +52,31 @@ if __name__ == '__main__':
         try:
             while True:
                 for c in seq: send_hex(c); time.sleep(0.5)
-        except KeyboardInterrupt: send_hex('off')
+        except KeyboardInterrupt: 
+            print("\n\033[1;33m[-] Loop interrupted. Shutting down LED safely...\033[0m")
+            send_hex('off')
     elif len(args) == 2 and args[0] in colors and args[1] in colors:
         print(f"Starting {args[0]} <-> {args[1]} strobe... Press Ctrl+C to stop.")
         try:
             while True: send_hex(args[0]); time.sleep(0.25); send_hex(args[1]); time.sleep(0.25)
-        except KeyboardInterrupt: send_hex('off')
+        except KeyboardInterrupt: 
+            print("\n\033[1;33m[-] Strobe interrupted. Shutting down LED safely...\033[0m")
+            send_hex('off')
     elif len(args) > 1 and args[1].isdigit():
         if args[0] in colors:
-            print(f"Blinking {args[0]} {args[1]} times..."); [ (send_hex(args[0]), time.sleep(0.3), send_hex('off'), time.sleep(0.3)) for _ in range(int(args[1])) ]
+            print(f"Blinking {args[0]} {args[1]} times... Press Ctrl+C to stop.")
+            try:
+                for _ in range(int(args[1])):
+                    send_hex(args[0])
+                    time.sleep(0.3)
+                    send_hex('off')
+                    time.sleep(0.3)
+            except KeyboardInterrupt:
+                print("\n\033[1;33m[-] Blink cycle interrupted. Shutting down LED safely...\033[0m")
+                send_hex('off')
         else: print_help()
     elif args[0] in colors:
         send_hex(args[0]); print(f"LED is now solid {args[0]}")
     else:
         print("\n\033[1;31m[!] Error: Invalid command or typo detected.\033[0m"); print_help()
+
