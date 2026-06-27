@@ -25,7 +25,7 @@ The easiest way to install this tool on MX Linux or Debian is by using our custo
 1. Head over to the **Releases** tab on this repository and download the latest `.deb` installer.
 2. Open your terminal in the directory where the file was downloaded and run:
 ```bash
-sudo apt install ./chromelight_0.1.9_all.deb
+sudo apt install ./chromelight_0.2.4_all.deb
 ```
 
 *(Note: The installer automatically pulls down required hardware dependencies like `python3-usb` and configures your system permissions).*
