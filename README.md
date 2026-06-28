@@ -7,6 +7,7 @@ This project is an updated and expanded Python 3 modernization based on the orig
 ## Features
 
 - **📦 Native Debian Installer (.deb):** Easily deploy the utility as a system application.
+- **🚦 Dual-Init Startup Integration:** Automatically flashes your LED green 3 times on laptop boot! Features intelligent post-install hooks that detect and configure themselves for both classic **SysVinit** and modern **Systemd** environments natively.
 - **🔑 Passwordless Hardware Access:** Bundled with custom kernel `udev` rules so you can switch colors without typing `sudo`.
 - **🎨 ANSI-Colored TUI:** Features a beautiful, color-coded terminal user interface menu with integrated syntax safeguards.
 - **⚡ Global Shortcut:** Accessible natively system-wide via the simple `chromelight` command.
@@ -25,10 +26,10 @@ The easiest way to install this tool on MX Linux or Debian is by using our custo
 1. Head over to the **Releases** tab on this repository and download the latest `.deb` installer.
 2. Open your terminal in the directory where the file was downloaded and run:
 ```bash
-sudo apt install ./chromelight_0.2.4_all.deb
+sudo apt install ./chromelight_0.3.0_all.deb
 ```
 
-*(Note: The installer automatically pulls down required hardware dependencies like `python3-usb` and configures your system permissions).*
+*(Note: The installer automatically pulls down required hardware dependencies like `python3-usb`, configures your system permissions, and hooks into your system boot manager).*
 
 ---
 
